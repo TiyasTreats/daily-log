@@ -2,14 +2,15 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Daily Log</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daily Internship Log</title>
 
   <style>
     body {
       font-family: Arial, sans-serif;
       background: #ffe6ef;
       margin: 0;
-      padding: 40px;
+      padding: 20px;
     }
 
     h1 {
@@ -27,7 +28,7 @@
       max-width: 750px;
       margin: auto;
       background: #fff0f6;
-      padding: 25px;
+      padding: 20px;
       border-radius: 14px;
       box-shadow: 0 10px 25px rgba(0,0,0,0.1);
     }
@@ -40,6 +41,11 @@
       font-weight: bold;
       cursor: pointer;
       width: 100%;
+      font-size: 16px;
+    }
+
+    .add-btn:hover {
+      background: #f06292;
     }
 
     .log-row {
@@ -50,14 +56,22 @@
       padding: 15px;
       margin-top: 15px;
       box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+      align-items: flex-start;
+      flex-wrap: nowrap;
     }
 
     .icons {
       display: flex;
       flex-direction: column;
       gap: 8px;
-      font-size: 18px;
+      font-size: 22px;
       cursor: pointer;
+      min-width: 30px;
+    }
+
+    .log-content {
+      flex: 1;
+      word-break: break-word;
     }
 
     .log-content strong {
@@ -72,7 +86,7 @@
       background: rgba(0,0,0,0.4);
       justify-content: center;
       align-items: center;
-      z-index: 10;
+      z-index: 1000;
     }
 
     .modal-content {
@@ -81,6 +95,8 @@
       border-radius: 14px;
       width: 90%;
       max-width: 500px;
+      max-height: 90vh;
+      overflow-y: auto;
       animation: pop 0.3s ease;
     }
 
@@ -95,10 +111,26 @@
       padding: 10px;
       border-radius: 8px;
       border: 1px solid #f8bbd0;
+      font-size: 16px;
     }
 
     textarea {
       min-height: 80px;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    #saveLog {
+      background-color: #f48fb1;
+      border: none;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+
+    #saveLog:hover {
+      background-color: #f06292;
     }
 
     /* THUMBS UP */
@@ -110,7 +142,7 @@
       font-size: 48px;
       animation: floatUp 1.2s ease forwards;
       pointer-events: none;
-      z-index: 20;
+      z-index: 2000;
     }
 
     @keyframes floatUp {
@@ -136,8 +168,8 @@
     <div class="modal-content">
       <h3>Add / Edit Log</h3>
       <input type="date" id="date">
-      <textarea id="text" placeholder="What was learnt today?"></textarea>
-      <button id="saveLog">Save</button>
+      <textarea id="text" placeholder="What did you learn today?"></textarea>
+      <button type="button" id="saveLog">Save</button>
     </div>
   </div>
 
@@ -233,3 +265,4 @@
 
 </body>
 </html>
+
